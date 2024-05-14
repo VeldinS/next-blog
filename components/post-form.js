@@ -1,21 +1,19 @@
 'use client'
 
-import React, {useActionState} from 'react';
+import React from 'react';
 import FormSubmit from "@/components/form-submit";
 
 function PostForm({action}) {
-    const [state, formAction] = useActionState(action, {});
-
     return (
         <>
             <h1>Create a new post</h1>
-            <form action={formAction}>
+            <form action={action}>
                 <p className="form-control">
                     <label htmlFor="title">Title</label>
                     <input type="text" id="title" name="title" />
                 </p>
                 <p className="form-control">
-                    <label htmlFor="image">Image URL</label>
+                    <label htmlFor="image">Image</label>
                     <input
                         type="file"
                         accept="image/png, image/jpeg"
@@ -30,13 +28,6 @@ function PostForm({action}) {
                 <p className="form-actions">
                     <FormSubmit />
                 </p>
-                {state.errors && (
-                    <ul className={"form-errors"}>
-                    {state.errors.map((error)=> (
-                        <li key={error}>{error}</li>
-                    ))}
-                </ul>
-                )}
             </form>
         </>
     );
