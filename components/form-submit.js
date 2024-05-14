@@ -1,14 +1,12 @@
-'use client'
+"use client";
 
-import React from 'react';
-import { useFormStatus } from 'react-dom'
+import { useFormStatus } from 'react-dom';
 
-
-function FormSubmit() {
+export default function FormSubmit() {
     const status = useFormStatus();
 
-    if(status.pending){
-        return <p>Creating post...</p>
+    if (status.pending) {
+        return <p>Creating post...</p>;
     }
 
     return (
@@ -18,5 +16,3 @@ function FormSubmit() {
         </>
     );
 }
-
-export default FormSubmit;
